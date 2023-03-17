@@ -10,6 +10,13 @@ from math import sqrt
 
 
 print("Загадайте два числа!")
+
 sum = int(input("Напишите чему равна сумма загаданных чисел : "))
 proizvedenie = int(input("Напишите чему равно произведение загаданных чисел : "))
-print(f"Загаданные числа a = { (sum - sqrt(((-sum)**2)-4*proizvedenie))/2} , b = { (sum + sqrt(((-sum)**2)-4*proizvedenie))/2}")
+
+# print(f"Загаданные числа a = { (sum - sqrt(((-sum)**2)-4*proizvedenie))/2} , b = { (sum + sqrt(((-sum)**2)-4*proizvedenie))/2}")
+
+for x in range(1,sum//2+2):
+    y = sum-x
+    if x*y == proizvedenie:
+        print (f"Искомые числа {x} и {y}")
