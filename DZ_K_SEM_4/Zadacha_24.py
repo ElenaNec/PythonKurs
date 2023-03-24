@@ -12,10 +12,14 @@
 находясь перед некоторым кустом заданной во входном файле грядки.'''
 
 n = int(input("Введите количество кустов : "))
-col = []
-for i in range(n):
-    x = int(input(f"Введите количество ягод на {i} кусте : "))
-    col.append(x)
+
+col = list(int(input(f"Введите количество ягод на {i} кусте : ")) for i in range(n))
+
+#или так
+# col = []
+# for i in range(n):
+#     x = int(input(f"Введите количество ягод на {i} кусте : "))
+#     col.append(x)
     
 rez = []
 for i in range(len(col)-1):
