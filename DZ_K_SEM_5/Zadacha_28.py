@@ -23,3 +23,13 @@ def my_sum(a, b,s):
 
 s = 0
 my_sum(a, b,s )
+
+# или такое решение
+# def summa(a, b):
+# if b == 0:
+# return a
+# sum = 1+summa(a, b-1)
+# return (sum)
+
+
+# print(summa(int(input("First number = ")), int(input("Second number = "))))
