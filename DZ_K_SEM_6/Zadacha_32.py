@@ -19,6 +19,11 @@ for i in range(len(array)):
         
 print(f"Индексы элементов массива, принадлежащих диапазону ({a} , {b}) :  {new_array}")
 
+# Эталонное решение :
+# for i in range(len(array)):
+#     if a < array[i] < b:
+#         print(i)
+
 
 
 
