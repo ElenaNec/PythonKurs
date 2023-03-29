@@ -10,6 +10,18 @@ a = int(input("Введите первый элемент прогрессии: 
 d = int(input("Введите разность элементов: "))
 n = int(input("Введите количество элементов: "))
 
+# Через цикл for:
+array = []
+temp = 0
+for _ in range(1,n+1):
+    array.append(a + temp) 
+    temp = temp + d
+print(array, end=" ")
+
+# Эталонное решение :
+# for i in range(n):
+#     print(a1 + i * d)
+
 # Через рекурсию :
 # print(a, end=" ")
 # def fill_array(a, d, n):
@@ -20,13 +32,6 @@ n = int(input("Введите количество элементов: "))
     
 # fill_array(a, d, n)
 
-# Через цикл for:
-array = []
-temp = 0
-for _ in range(1,n+1):
-    array.append(a + temp) 
-    temp = temp + d
-print(array, end=" ")
 
 # Через цикл while:
 # array = []
