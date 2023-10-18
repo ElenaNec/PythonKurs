@@ -4,9 +4,9 @@
 # Выберите верный порядок декораторов.
 
 
-from Zadacha_2 import game_decor # контроль значений
-from Zadacha_3 import func_dec # сохр параметров
-from Zadacha_3 import func_count # многократный запуск
+from Zadacha_2 import game_decor  # контроль значений
+from Zadacha_3 import func_dec  # сохр параметров
+from Zadacha_3 import func_count  # многократный запуск
 
 
 @func_count(3)
