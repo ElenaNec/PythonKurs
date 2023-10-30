@@ -28,66 +28,64 @@
 # животного. Метод create_animal должен создавать
 # и возвращать экземпляр животного заданного типа с переданными параметрами.
 
-
-class Animal:
+class Animals:
     def __init__(self, name):
         self.name = name
 
 
-class Bird(Animal):
-    def __init__(self, name, wingspan):
-        super().__init__(name)
-        self.wingspan = wingspan
+class Bird(Animals):
+    def __init__(self):
+        pass
 
-    def wing_length(self):
-        return self.wingspan / 2
-
-
-class Fish(Animal):
-    def __init__(self, name, max_depth):
-        super().__init__(name)
-        self.max_depth = max_depth
-
-    def depth(self):
-        if self.max_depth < 10:
-            return 'Мелководная рыба'
-        elif self.max_depth > 100:
-            return 'Глубоководная рыба'
-        return 'Средневодная рыба'
+    def wing_length(wingspan):
+        wing = wingspan / 2
+        return print(f"{wing}")
 
 
-class Mammal(Animal):
-    def __init__(self, name, weight):
-        super().__init__(name)
-        self.weight = weight
+class Fish(Animals):
+    def __init__(self):
+        pass
 
-    def category(self):
-        if self.weight < 1:
-            return 'Малявка'
-        elif self.weight > 200:
-            return 'Гигант'
-        return 'Обычный'
-
-
-class AnimalFactory:
-    @staticmethod
-    def create_animal(animal_type, *args):
-        if animal_type == 'Bird':
-            return Bird(*args)
-        elif animal_type == 'Fish':
-            return Fish(*args)
-        elif animal_type == 'Mammal':
-            return Mammal(*args)
+    def depth(max_depth):
+        '''категория глубины рыбы: мелководная(0-10), средневодная(11-200),
+           глубоководная(201-далее)'''
+        if 0 < max_depth <= 10:
+            depth_fish = "Мелководная рыба"
+        elif 11 < max_depth <= 200:
+            depth_fish = "Средневодная рыба"
         else:
-            raise ValueError('Недопустимый тип животного')
+            depth_fish = "Глубоководная рыба"
+        return print(f'{depth_fish}')
+
+
+class Mammal(Animals):
+    def __init__(self):
+        pass
+
+    def category(weight):
+        '''Категория млекопитающего: Малявка(0-10), Обычный(11-100),
+           Гигант(101-далее)'''
+        if 0 < weight <= 10:
+            category_mammal = "Малявка"
+        elif 11 < weight <= 100:
+            category_mammal = "Обычный"
+        else:
+            category_mammal = "Гигант"
+        return print(f'{category_mammal}')
+
+
+class AnimalFactory(Animals):
+    def create_animal(type_an, name, param):
+
+        if type_an == 'Bird':
+            return Bird.wing_length(param)
+        elif type_an == 'Fish':
+            return Fish.depth(param)
+        elif type_an == 'Mammal':
+            return Mammal.category(param)
 
 
 # Создание экземпляров животных
 animal1 = AnimalFactory.create_animal('Bird', 'Орел', 200)
-animal2 = AnimalFactory.create_animal('Fish', 'Salmon', 50)
+animal2 = AnimalFactory.create_animal('Fish', 'Лосось', 50)
 animal3 = AnimalFactory.create_animal('Mammal', 'Слон', 5000)
-
-# Вывод результатов
-print(animal1.wing_length())
-print(animal2.depth())
-print(animal3.category())
